@@ -1,0 +1,22 @@
+[package]
+name = "gem-lang"
+description = "Personal Toy Programming Language"
+authors = ["CatCode79"]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+publish = false
+
+[dependencies]
+log = "0.4"
+
+[profile.dev]
+opt-level = 2
+split-debuginfo = "unpacked"
+#overflow-checks = false  # It's really unwise to enable it
+#lto = "thin"  # It slows compilation's time too much
+incremental = false
+codegen-units = 16
+
+[profile.dev.package."*"]
+inherits = "dev"
