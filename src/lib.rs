@@ -21,7 +21,7 @@ pub fn gem_add(lhs: i64, rhs: i64) -> i64 {
         panic!("attempt to add with overflow: {lhs} + {rhs} = {rust_result}");
     }
     let asm_result = asm_add(lhs, rhs);
-    assert_eq!(rust_result, asm_result, "rust result and asm result are different on addition: {rust_result} != {asm_result}");
+    assert_eq!(rust_result, asm_result, "rust result and asm result are different on addition: {rust_result} != {asm_result}");  // TODO: this can probably be moved into a test
     asm_result
 }
 
