@@ -1,5 +1,7 @@
 use crate::parser::extract_operator;
 
+//- MATH OPERATOR ------------------------------------------------------------
+
 #[derive(Debug, PartialEq)]
 pub enum Operator {
     Add,
@@ -9,7 +11,7 @@ pub enum Operator {
 }
 
 impl Operator {
-    pub fn new(token: &str) -> (&str, Self) {
+    pub(crate) fn new(token: &str) -> (&str, Self) {
         let (s, operator) = extract_operator(token);
         let operator = match operator {
             "+" => Self::Add,
