@@ -8,7 +8,12 @@ pub struct Int64 {
 }
 
 impl Int64 {
-    pub(crate) fn new(token: &str) -> (&str, Self) {
+    pub(crate) fn new(value: i64) -> Self {
+        Self {
+            value,
+        }
+    }
+    pub(crate) fn parse(token: &str) -> (&str, Self) {
         let (s, numerical) = extract_digits(token);
         (
             s,

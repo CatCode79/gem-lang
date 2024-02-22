@@ -11,13 +11,13 @@ pub(crate) struct Expression {
 
 impl Expression {
     pub(crate) fn new(s: &str) -> (&str, Self) {
-        let (s, lhs) = Int64::new(s);
+        let (s, lhs) = Int64::parse(s);
         let (s, _) = extract_whitespace(s);
 
         let (s, op) = Operator::new(s);
         let (s, _) = extract_whitespace(s);
 
-        let (s, rhs) = Int64::new(s);
+        let (s, rhs) = Int64::parse(s);
 
         (s, Self { lhs, rhs, op })
     }
